@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+	
+	<!--Sales bean-->
+	<bean id="salebean" class="practice.Sales">
+			<constructor-arg value="1" type="int"></constructor-arg>
+			<constructor-arg value="wali" ></constructor-arg>
+			<property name="product" ref="myproduct"></property>
+	</bean>
+	
+	<!--ProductInventory bean-->
+	<bean id="productdetails" class="practice.ProductInventory">
+			<constructor-arg value="120"></constructor-arg>
+			<constructor-arg value="80"></constructor-arg>
+			<constructor-arg value="red"></constructor-arg>
+	</bean>
+	
+	
+	<!--product bean-->
+	<bean id="myproduct" class="practice.Product">
+			<constructor-arg value="111"></constructor-arg>
+			<constructor-arg value="maggie"></constructor-arg>
+			<constructor-arg value="nestle"></constructor-arg>
+			<constructor-arg >
+					<ref bean="productdetails"/>
+			</constructor-arg>		
+	</bean>
+	
+	
+	
+	
+</beans>
