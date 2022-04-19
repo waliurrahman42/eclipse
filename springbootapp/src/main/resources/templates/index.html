@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container bg-primary">
+		<h1 class="">Welcome to my home page</h1>
+
+	</div>
+	<div>
+		<h3> <a th:href="@{/register}">Sign Up</a></h3>
+		   <h3> <a th:href="@{/login}">Login</a></h3>
+		   <h3> <a th:href="@{/list_user}">List Of Users </a></h3>
+	</div>
+</body>
+</html>

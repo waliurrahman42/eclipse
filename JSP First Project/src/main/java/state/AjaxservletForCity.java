@@ -33,7 +33,7 @@ public class AjaxservletForCity extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String state=request.getParameter("state");
-		
+
 		ResultSet rs=StateDbservice.fetchStatecity(state);
 		
 		try {

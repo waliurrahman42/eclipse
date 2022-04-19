@@ -32,6 +32,89 @@
 	</bean>
 	
 	
+	<!--Question bean  package constructor.bean.collection.spring-->
+	
+	<bean id="mcq" class="constructor.bean.collection.spring.Question">
+			<constructor-arg value="1"></constructor-arg>
+			<constructor-arg value="what is spring"></constructor-arg>
+			<constructor-arg >
+					<list>
+						<value>spring is a framework</value>
+						<value>spring supoort dependecy injection</value>
+						<value>dependecy injection can be achived or by constructon or setter method</value>
+					</list>
+			</constructor-arg>
+			
+	</bean>
+	
+	<!--Customer bean  package constructor.bean.collection.spring-->
+		<bean id="customer" class="constructor.bean.collection.spring.Customer">
+			<constructor-arg value="101"></constructor-arg>
+			<constructor-arg value="Wali"></constructor-arg>
+			<constructor-arg >
+				<list>
+					<ref bean="customeradd1"/>
+					<ref bean="customeradd2"/>
+				</list>
+			</constructor-arg>
+		</bean>
 	
 	
+	<!--CustomerAddress bean  package constructor.bean.collection.spring-->
+
+		<bean id="customeradd1" class="constructor.bean.collection.spring.CustomerAddress">
+			<constructor-arg value="111"></constructor-arg>
+			<constructor-arg value="patna"></constructor-arg>
+			<constructor-arg value="800014"></constructor-arg>
+		</bean>
+
+		<bean id="customeradd2" class="constructor.bean.collection.spring.CustomerAddress">
+			<constructor-arg value="112"></constructor-arg>
+			<constructor-arg value="muzaffarpur"></constructor-arg>
+			<constructor-arg value="842002"></constructor-arg>
+		</bean>
+	
+	
+	
+	<!--Lead bean  package seter.method.bean.spring-->
+		
+	<bean id="leaddetails" class="seter.method.bean.spring.Lead">
+		<property name="leadid">
+			<value>123</value>
+		</property>
+		<property name="leadName">
+			<value>wali</value>
+		</property>
+		<property name="leadCourse">
+			<value>pgdac</value>
+		</property>
+	</bean>
+
+	<!--Lead MyProduct  package seter.method.bean.spring-->
+		
+		<bean id="myproduct1" class="seter.method.bean.spring.MyProduct">
+				<property name="mpId">
+					<value>25</value>
+				</property>
+				<property name="mProductName">
+					<value>moms magic</value>
+				</property>
+				<property name="mInv">
+						<ref bean="myprodInvn"/>
+				</property>
+				
+		</bean>
+
+
+		<bean id="myprodInvn" class="seter.method.bean.spring.MyProductInventery">
+				<property name="invId">
+					<value>100</value>
+				</property>
+				<property name="invQuant">
+					<value>25</value>
+				</property>
+			
+		</bean>
+
+
 </beans>

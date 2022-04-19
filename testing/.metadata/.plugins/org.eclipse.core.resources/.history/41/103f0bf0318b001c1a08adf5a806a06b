@@ -1,0 +1,29 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class FirstTest {
+
+	public static void main(String[] args) {
+		// Declare ad instialize Object
+	  System.setProperty("webdriver.chrome.driver","W:\\PG_DAC\\SDM\\SDM Note\\SDM Notes\\Testing\\chromedriver_win32\\chromedriver.exe");
+      WebDriver driver = new ChromeDriver();
+      
+      driver.navigate().to("http://www.google.com/");
+      
+      driver.findElement(By.name("q")).sendKeys("virat");
+      
+      driver.findElement(By.name("btnK")).click();
+      
+      driver.getTitle();
+      
+      //WebElement searchBox = driver.findElement(By.name("q"));
+      
+      //searchBox.sendKeys("Prof. Ajit Vishwakarma");
+      
+     
+	}
+
+}

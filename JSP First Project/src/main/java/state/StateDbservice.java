@@ -84,9 +84,9 @@ public class StateDbservice {
 		Connection con =getDbConnection();
 		ResultSet rs=null;
 		try {
-			String query="select ud.fullname,ud.username,sm.state_name,cm.city_name from user_details ud inner join state_master sm on ud.state_id=sm.state_id inner join city_master cm on ud.city_id=cm.city_id;";
+			String query="select ud.fullname,ud.username,sm.state_name,cm.city_name from user_details ud inner join state_master sm on ud.state_id=sm.state_id inner join city_master cm on ud.city_id=cm.city_id ";
 			PreparedStatement ps=con.prepareStatement(query);
-
+			
 			rs = ps.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -95,23 +95,69 @@ public class StateDbservice {
 	}
 
 
-	//using fetch bean class
-	public static ArrayList<UserBean> fetchUserDetailjoin() throws SQLException {
-		ArrayList<UserBean> al=new ArrayList<UserBean>();
-		Connection con =getDbConnection();
-		ResultSet rs=null; 
-
-		String query="select ud.fullname,ud.username,sm.state_name,cm.city_name from user_details ud inner join state_master sm on ud.state_id=sm.state_id inner join city_master cm on ud.city_id=cm.city_id;";
-		PreparedStatement ps=con.prepareStatement(query);
-		rs = ps.executeQuery();
-		while(rs.next()) {
-			UserBean us= new UserBean();
-			us.setFullname(rs.getString(1));
-			us.setUsername(rs.getString(2));
-
-			al.add(us);
+	
+	
+	
+	//search using  ajax by name
+	public static ResultSet fetchUsingName(String name) {
+		ResultSet rs = null;
+		try {
+			Connection con =getDbConnection();
+			String query="select ud.fullname,ud.username,sm.state_name,cm.city_name from user_details ud inner join state_master sm on ud.state_id=sm.state_id inner join city_master cm on ud.city_id=cm.city_id where fullname like ?";
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.setString(1,name+"%");
+			rs=ps.executeQuery();
 		}
-		return al;
-
+		catch(SQLException e) {
+			System.err.println("exception while search By name using join "+e);
+		}
+		return rs;
 	}
+	//search using  ajax by username
+	public static ResultSet fetchUsingUserName(String uname) {
+			ResultSet rs = null;
+			try {
+				Connection con =getDbConnection();
+				String query="select ud.fullname,ud.username,sm.state_name,cm.city_name from user_details ud inner join state_master sm on ud.state_id=sm.state_id inner join city_master cm on ud.city_id=cm.city_id where username like ?";
+				PreparedStatement ps=con.prepareStatement(query);
+				ps.setString(1,uname+"%");
+				rs=ps.executeQuery();
+			}
+			catch(SQLException e) {
+				System.err.println("exception while search By name using join "+e);
+			}
+			return rs;
+	}
+	//search using  ajax by state
+	public static ResultSet fetchUsingState(String state) {
+			ResultSet rs = null;
+			try {
+				Connection con =getDbConnection();
+				String query="select ud.fullname,ud.username,sm.state_name,cm.city_name from user_details ud inner join state_master sm on ud.state_id=sm.state_id inner join city_master cm on ud.city_id=cm.city_id where state_name = ?";
+				PreparedStatement ps=con.prepareStatement(query);
+				ps.setString(1,state);
+				rs=ps.executeQuery();
+			}
+			catch(SQLException e) {
+				System.err.println("exception while search By name using join "+e);
+			}
+			return rs;
+	}
+		
+	//search using  ajax by city	
+	public static ResultSet fetchUsingCity(String city ) {
+		ResultSet rs = null;
+		try {
+			Connection con =getDbConnection();
+			String query="select ud.fullname,ud.username,sm.state_name,cm.city_name from user_details ud inner join state_master sm on ud.state_id=sm.state_id inner join city_master cm on ud.city_id=cm.city_id where city_name = ?";
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.setString(1,city);
+			rs=ps.executeQuery();
+		}
+		catch(SQLException e) {
+			System.err.println("exception while search By name using join "+e);
+		}
+		return rs;
+	}
+	
 }

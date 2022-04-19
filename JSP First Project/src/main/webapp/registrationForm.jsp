@@ -93,24 +93,24 @@
 <body>
 	<%@include file="header.jsp" %>
 	
-	<form method="get" action="userSignupFrom.jsp">
+	<form method="post" action="userSignupFrom.jsp">
 		
 		Name : <input type="text" name="fullname" id="name" required onblur="namevalid()" oninput="reset_err()"> 
 		<span id="name_err"></span></br>
-		User Name : <input type="text" name="username" required></br> 
+		User Name : <input type="text" name="username"  required></br> 
 		Password : <input type="password" name="password" id="pass" required></br>
-		Confirm Password : <input type="password" name="cpass" id="cpass" onblur="pswdConfirm()" oninput="reset_err() " required>
+		Confirm Password : <input type="password" name="cpass" id="cpass" required onblur="pswdConfirm()" oninput="reset_err() " >
 		<span id="cpss_err" ></span>
 		
 		 
-			</br>State :<select	name="ddlState" id="ddlState" onchange="city()">
+			</br>State :<select	name="ddlState" id="ddlState" onchange="city()" required>
 							<option value="-1">--Select State</option>
 						   	<%  ResultSet rs=StateDbservice.fetchStateData();
 								while(rs.next()){ %>
 									<option value=<%=rs.getString(1)%>><%= rs.getString(2)%></option>
 							<%	}%>
 					    </select> 
-			 City : <select name="ddlCity" id="ddlCity">
+			 City : <select name="ddlCity" id="ddlCity" required>
 							 <option value="-1">---Select City---</option>
 					</select>
 		

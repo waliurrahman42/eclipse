@@ -1,0 +1,69 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Order {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+
+		
+		// Declare ad instialize Object
+		System.setProperty("webdriver.chrome.driver","W:\\PG_DAC\\SDM\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver1 = new ChromeDriver();
+		driver1.navigate().to("http://commerce.vinayavish.com/");
+
+		//driver1.findElement(By.name("login")).sendKeys("farazattari786@gmail.com");
+		//driver1.findElement(By.name("password")).sendKeys("Faraz");
+		//driver1.findElement(By.xpath("//*[@id=\"menu\"]/div[2]/ul/li[1]")).click();
+		//driver1.findElement(By.xpath("//*[@id=\"menu\"]/div[2]/ul/li[1]/div/div/ul/li[1]/a")).click();
+		//driver1.findElement(By.xpath("//*[@id=\"content\"]/div/div/ul/li[1]/a")).click();
+		//driver1.findElement(By.xpath("//*[@id=\"content\"]/div[2]/div/div/div[2]/div[2]/button[1]/i")).click();
+		
+		//driver1.findElement(By.xpath("//*[@id=\"cart\"]/ul/li[2]/div/p/a[2]/strong")).click();
+		
+		
+//		Select degree college 
+		driver1.findElement(By.xpath("//*[@id=\"menu\"]/div[2]/ul/li[1]/a")).click();
+//		select Post graduation
+		driver1.findElement(By.xpath("//*[@id=\"menu\"]/div[2]/ul/li[1]/div/div/ul/li[2]/a")).click();
+//		select M.Sc information Technology
+		driver1.findElement(By.xpath("//*[@id=\"content\"]/div/div[1]/ul/li[3]/a")).click();
+//		select add to cart for artificial intelligence book
+		driver1.findElement(By.xpath("//*[@id=\"content\"]/div[2]/div[2]/div/div[2]/div[2]/button[1]")).click();
+		
+		// checkout 
+		driver1.findElement(By.xpath("//*[@id=\"top-links\"]/ul/li[5]/a/i")).click();
+		
+		//
+		driver1.findElement(By.id("button-account")).submit();
+		//driver1.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/div[1]/input")).click();
+		//driver1.findElement(By.xpath("")).click();
+		//driver1.findElement(By.("")).click();
+		//driver1.findElement(By.xpath("")).click();
+		//driver1.findElement(By.xpath("")).click();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		TimeUnit.MINUTES.sleep(1);
+//		driver.findElement(By.xpath("//*[@id=\"header\"]/div[1]/div/div/div[2]/div/a[2]")).click();
+
+		
+		
+		
+		
+		
+	}
+
+}
